@@ -1,0 +1,49 @@
+
+<%#= @employee.email %>
+
+<h1><%= @employee.employee_name %> tansaction details:</h1>
+
+<%= form_tag(user_path(@employee), method: :get) do %>
+  <%= text_field_tag :start_date %>
+  <%= text_field_tag :end_date %>
+  <%= submit_tag 'Search' %>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Employee</th>
+      <th>Mobile</th>
+      <th>Card</th>
+      <th>Transaction time</th>
+      <th>Marchent name</th>
+      <th>Amount</th>
+      <th>Status</th>
+      
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @transactions.each do |transaction| %>
+      <tr>
+        <td><%= transaction.user.employee_name %></td>
+        <td><%= transaction.mobile %></td>
+        <td><%= transaction.card.card_number %></td>
+        <td><%= transaction.transaction_time %></td>
+        <td><%= transaction.marchent_name %></td>
+        <td><%= transaction.amount %></td>
+        <td><%= transaction.status %></td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h3>Total tax excempted for this specified range:  <%= @total_tax_convience %></h3>
+
+<%= link_to 'Add Transaction', new_user_transaction_path(@employee) %>
+<%= link_to 'Back to employee list', company_path(@employee.company) %>
+
+<br>
+
+

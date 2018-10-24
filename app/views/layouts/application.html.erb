@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tracking</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="tran_home">
+      <h1><%= link_to 'Card Tracking', root_path %> </h1>
+    
+      <div style="float:right">
+        <%#= link_to 'cards list', cards_path %>
+        <%#= link_to 'Transactions list', transactions_path %>
+      </div>
+    </div>  
+
+    <% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>

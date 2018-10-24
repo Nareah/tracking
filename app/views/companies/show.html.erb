@@ -1,0 +1,71 @@
+
+<p class="navbar-text pull-right">
+	
+</p>
+<!-- <p id="notice"><%= notice %></p> -->
+<p>
+	<strong>Name:</strong>
+	<%= @company.name %> / <%= @company.location %> 
+
+
+	<%= link_to 'Edit', edit_company_path(@company) %> |
+	<%= link_to 'Back', companies_path %>
+</p>
+
+<%= form_tag(company_path(@company), method: :get) do %>
+  <%= text_field_tag :start_date %>
+  <%= text_field_tag :end_date %>
+  <%= submit_tag 'Search' %>
+<% end %>
+
+<p>
+	<h1>Employee Details</h1>
+
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Employee Name</th>
+	      <th>Email</th>
+	      <th>Card details</th>
+	      <th>Tax Exemption</th>
+	      <th colspan="3"></th>
+	    </tr>
+	  </thead>
+
+	  <tbody>
+	    <% @employees.each do |emp| %>
+	      <tr>
+	        <td><%= emp.employee_name %></td>
+	        <td><%= emp.email %></td>
+	        <% if emp.card.present? %>
+	        	<td><%= emp.card.card_number %></td>
+	        	<td><%= emp.tax_exemption %></td>	
+	        	<td><%= link_to 'Add Transaction', new_user_transaction_path(emp) %></td>
+	        <% else %>
+	            <td><%= link_to 'Add Card', new_user_card_path(emp) %></td>
+	            <td>Card required </td>
+	            <td>Card required </td>
+	        <% end -%>  
+	        
+	        <td><%= link_to 'show', user_path(emp) %></td>
+	        <%#= link_to 'Edit', edit_user_registration_path(emp) %>
+	        
+	        
+	      </tr>
+	    <% end %>
+	  </tbody>
+	</table>
+
+</p>
+
+
+
+<% if user_signed_in? %>
+  Logged in as <strong><%= current_user.email %></strong>.
+  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+<% else %>
+  <%= link_to "Add new employee", new_user_registration_path, :class => 'navbar-link'  %> 
+  <%#= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+<% end %>
+
