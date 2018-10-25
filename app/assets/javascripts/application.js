@@ -14,3 +14,34 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+//= require jquery
+//= require jquery_ujs
+
+$( document ).ready(function() {
+    console.log( "ready!" );
+    $('#start_date').datepicker({
+    		format: 'yyyy-mm-dd',
+    		uiLibrary: 'bootstrap4'
+        });
+
+    $('#end_date').datepicker({
+    		format: 'yyyy-mm-dd',
+            uiLibrary: 'bootstrap4'
+        });
+});
+
+$( document ).on('turbolinks:load', function() {
+  $('#start_date').datepicker({
+    		format: 'yyyy-mm-dd',
+    		uiLibrary: 'bootstrap4'
+        });
+
+    $('#end_date').datepicker({
+    		format: 'yyyy-mm-dd',
+            uiLibrary: 'bootstrap4'
+        });
+})
+
+
+
+//$('.search-field').datepicker();

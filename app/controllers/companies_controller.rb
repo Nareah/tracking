@@ -12,16 +12,23 @@ class CompaniesController < ApplicationController
   # GET /companies/1.json
   def show
     @employees = @company.users
-    start_date = params[:start_date]? DateTime.parse(params[:start_date]) : DateTime.now.beginning_of_month
-    end_date = params[:end_date]? DateTime.parse(params[:end_date]) : DateTime.now.end_of_month
+    start_date = params[:start_date].present? ? DateTime.parse(params[:start_date]) : DateTime.now.beginning_of_month
+    end_date = params[:end_date].present? ? DateTime.parse(params[:end_date]) : DateTime.now.end_of_month
 
     @employees.each do|emp|
-      emp.tax_exemption = emp.transactions.where(transaction_time: start_date..end_date).sum(:amount)
-      
+      emp.tax_exemption = emp.transactions.where(transaction_time: start_date-1..end_date+1).sum(:amount)
     end
 
     #@transactions = @employee.transactions.where(transaction_time: start_date..end_date)
     #@total_tax_convience = @transactions.sum(:amount)
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "user_report",
+        layout: 'pdf.html.erb'
+      end
+    end
   end
 
   # GET /companies/new

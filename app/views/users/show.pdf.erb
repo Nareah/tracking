@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <h2><%=@employee.employee_name%> Transasaction details: </h2>
+    <table class="table table-striped">
+      <thead>
+        <th>Employee</th>
+        <th>Mobile</th>
+        <th>Card</th>
+        <th>Transaction time</th>
+        <th>Marchent name</th>
+        <th>Amount</th>
+        <th>Status</th>
+      </thead>
+      <tbody>
+        <% @transactions.each do |transaction| %>
+          <tr>
+            <td><%= transaction.user.employee_name %></td>
+            <td><%= transaction.mobile %></td>
+            <td><%= transaction.card.card_number %></td>
+            <td><%= transaction.transaction_time %></td>
+            <td><%= transaction.marchent_name %></td>
+            <td><%= transaction.amount %></td>
+            <td><%= transaction.status %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <h3>Total tax excempted for this specified range:  <%= @total_tax_convience %></h3>
+  </div>
+</div>

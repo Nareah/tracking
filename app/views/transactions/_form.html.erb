@@ -13,12 +13,12 @@
 
   <div class="field">
     <%= form.label :user_id %>
-    <%= form.number_field :user_id %>
+    <%= form.number_field :user_id, :readonly => true, class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :mobile %>
-    <%= form.text_field :mobile %>
+    <%= form.text_field :mobile, class: 'form-control' %>
   </div>
 
   <!-- <div class="field">
@@ -28,25 +28,25 @@
 
   <div class="field">
     <%= form.label :transaction_time %>
-    <%= form.datetime_select :transaction_time %>
+    <%= form.datetime_select :transaction_time, class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :marchent_name %>
-    <%= form.text_field :marchent_name %>
+    <%= form.text_field :marchent_name, class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :amount %>
-    <%= form.text_field :amount %>
+    <%= form.text_field :amount, class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :status %>
-    <%= form.text_field :status %>
+    <%= form.text_field :status, class: 'form-control' %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit :class => 'btn btn-success' %>
   </div>
 <% end %>

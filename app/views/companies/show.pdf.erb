@@ -1,0 +1,33 @@
+
+<h1>Employee Details</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr class="table-active">
+      <th>Employee Name</th>
+      <th>Email</th>
+      <th>Card details</th>
+      <th>Tax Exemption in given period</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @employees.each do |emp| %>
+      <tr>
+        <td><%= emp.employee_name %></td>
+        <td><%= emp.email %></td>
+        <% if emp.card.present? %>
+        	<td><%= emp.card.card_number %></td>
+        	<td><%= emp.tax_exemption %></td>	
+        	
+        <% else %>
+            <td>No Card</td>
+            <td>No ransactions </td>
+            
+        <% end -%>  
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>

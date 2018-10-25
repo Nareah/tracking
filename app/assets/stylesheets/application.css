@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+
+.search-field{
+	display: inline !important;
+    width: 20% !important!;
+}
+
+.form-inline .custom-select, .form-inline .input-group, .form_btn{
+	float: left;
+	margin: 10px;
+}

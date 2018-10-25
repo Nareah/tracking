@@ -10,6 +10,14 @@ gem 'rails', '~> 5.2.0'
 gem 'mysql2', '~> 0.4.4'
 
 gem 'devise'
+
+gem 'bootstrap', '~> 4.1.3'
+
+gem 'jquery-rails'
+
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets

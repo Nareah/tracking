@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2018_10_24_084429) do
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "card_number"
+    t.bigint "card_number"
     t.string "card_type"
     t.integer "user_id"
     t.datetime "created_at", null: false
@@ -28,9 +28,9 @@ ActiveRecord::Schema.define(version: 2018_10_24_084429) do
   end
 
   create_table "transactions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "user_id"
+    t.bigint "user_id"
     t.string "mobile"
-    t.integer "card_id"
+    t.bigint "card_id"
     t.datetime "transaction_time"
     t.string "marchent_name"
     t.float "amount"
