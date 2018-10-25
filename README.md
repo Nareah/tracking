@@ -1,24 +1,12 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+Work flow of application:
 
-* Ruby version
+* Form the home page you need to create a company first, from there we can create employee.
+* Navigate to employee list and create an employee.
+* Add card to emplyee by creating new card and add transaction to employee.
+* From the Employee list page you can see all employee informtion along with Tax Exemption of specified period(default:current month).
+* We can download(PDF) the same employee list using download option.
+* Detailed employee transaction list will be in employee transaction page, we can specify the date range(default: current month)
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
