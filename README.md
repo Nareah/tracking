@@ -9,4 +9,5 @@ Work flow of application:
 * From the Employee list page you can see all employee informtion along with Tax Exemption of specified period(default:current month).
 * We can download(PDF) the same employee list using download option.
 * Detailed employee transaction list will be in employee transaction page, we can specify the date range(default: current month)
+* test sonar
 
